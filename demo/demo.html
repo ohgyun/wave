@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vongole - JavaScript Demoing Framework</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+<link href="css/vongole.ui.css" rel="stylesheet" media="screen">
+<!-- mustard: 콘솔 출력을 위한 CSS -->
+<link type="text/css" rel="stylesheet" href="http://ohgyun.github.com/mustard/css/prettify.css">
+<link type="text/css" rel="stylesheet" href="http://ohgyun.github.com/mustard/css/mustard.css">
+<style type="text/css">
+.v-desc > strong {display:block;}
+#v-target {display:none;}
+#v-console {padding: 0;}
+.mustard-title {line-height:150%;border-bottom:1px solid #ccc;}
+.mustard-wrap {border-radius:4px;border:none}
+</style>
+<!-- //mustard -->
+</head>
+<body>
+<div id="v-wrap"></div>
+
+<!-- templates -->
+<script id="v-tmpl-container" type="text/x-handlebars-template">
+  <div class="container">
+    <h1 class="v-title">{{title}}</h1>
+    <div class="row-fluid">
+      <div class="span4">
+        <div class="well" style="padding:0 15px">
+          <div id="v-list"></div>
+        </div>
+        <label class="v-debug checkbox">
+          <input type="checkbox" data-vui="debug"> Debug
+        </label>
+      </div>
+      <div class="span8">
+        <div class="v-desc alert alert-info">
+          <strong><i class="icon-ok"></i> <span id="v-item-title"></span></strong>
+          <span id="v-item-description"></span>
+        </div>
+        <div id="v-target" class="well"></div>
+        <div id="v-console" class="well">
+          <div id="console"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+<script id="v-tmpl-list" type="text/x-handlebars-template">
+  <h4 class="v-step">{{step.title}}</h4>
+  <ul class="unstyled">
+    {{#iter step.items}}
+    <li class="v-item">
+      <button class="btn btn-block" data-vui="item" data-item-idx="{{idx}}">
+        {{title}} <i class="icon-chevron-right pull-right"></i>
+      </button>
+    </li>
+    {{/iter}}
+    {{#unless status.isSingle}}
+    <li class="v-divider"></li>
+    <li class="v-misc">
+      <button class="btn btn-small {{#unless status.hasPrev}}v-hidden{{/unless}}" data-vui="prev"><i class="icon-arrow-left"></i> Prev</button>
+      {{#if status.hasNext}}
+      <button class="btn btn-small pull-right {{#unless status.hasNext}}v-hidden{{/unless}}" data-vui="next">Next <i class="icon-arrow-right"></i></button>
+      {{/if}}
+    </li>
+    {{/unless}}
+  </ul>
+</script>
+<!-- // templates -->
+
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script src="http://underscorejs.org/underscore-min.js"></script>
+<script src="js/vongole.js"></script>
+<!--
+<script src="https://raw.github.com/ohgyun/vongole/master/vongole.js"></script> -->
+<script src="http://cloud.github.com/downloads/wycats/handlebars.js/handlebars-1.0.rc.1.js"></script>
+<script src="js/vongole.ui.js"></script>
+
+<!-- mustard: 콘솔 출력을 위한 스크립트 -->
+<script src="http://ohgyun.github.com/mustard/mustard.min.js"></script>
+<!-- //mustard -->
+
+
+<script src="../release/wave-0.1.0.js"></script>
+<script src="demo_script.js"></script>
+<script>
+// 콘솔 코드
+//---------
+var m = Mustard({
+  renderTo: 'console',
+  width: '100%',
+  height: 300
+});
+
+</script>
+</body>
+</html>

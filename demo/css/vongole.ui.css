@@ -1,0 +1,50 @@
+body{ 
+  margin: 0;
+  padding: 0;
+}
+
+#v-wrap {
+  margin: 10px;
+}
+
+.v-title {
+  margin-bottom: 20px;
+}
+
+.v-step {
+  margin: 15px 0;
+}
+
+.v-debug {
+  margin-top: -15px;
+}
+
+.v-item button {
+  margin: 5px 0;
+  padding: 4px 10px;
+  text-align: left;
+}
+.v-item i {
+  margin-top: 3px;
+  opacity: 0.25;
+}
+
+.v-divider {
+  height: 1px;
+  overflow: hidden;
+  margin: 9px 1px;
+  background-color: #e5e5e5;
+  border-bottom: 1px solid #fff;
+}
+
+.v-misc i {
+  opacity: 0.75;
+}
+
+.v-desc i {
+  opacity: 0.5;
+}
+
+.v-hidden {
+  visibility: hidden;
+}
